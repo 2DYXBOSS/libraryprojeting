@@ -216,7 +216,7 @@ def Payement() :
 
 @app.route('/new',methods = ["POST"])
 def new():
-    zee = Connecter.query.get(1)
+    zee = Connecter.query.get(0)
     user = Profil.query.filter_by(last_name = zee.last_name).first()
     nom = request.form.get("nom")
     desc = request.form.get("desc")
@@ -234,7 +234,7 @@ def new():
 @app.route('/panieruser')
 def panieruserk():
     data = Userpaniere.query.all()
-    zee = Connecter.query.get(1)
+    zee = Connecter.query.get(0)
     user = Userpaniere.query.filter_by(mail = zee.last_name).first()
     frr = []
     for i in data :
@@ -408,7 +408,7 @@ def sprome() :
         print(f"vous etes connecter{user.first_name}{user.id}")
         # return redirect(url_for('home', user=user.id))
 
-        tre = Connecter.query.get(1)
+        tre = Connecter.query.get(0)
         profi = Connecter.query.all()
         tre.first_name = user.first_name
         tre.last_name = user.last_name
@@ -673,7 +673,7 @@ def display_image(filename):
 
 
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 
 @app.route('/recherche', methods=['GET','POST'])
